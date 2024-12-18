@@ -1,0 +1,74 @@
+esphome:
+  name: rgb-adres
+  friendly_name: rgb adres
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "hDf/uWuwSmMU/NfrYHgaGOpVIHuParDotnxe4hOfZiA="
+
+ota:
+  - platform: esphome
+    password: "1b42dccb0fa11f089a3b3c334beb28be"
+
+wifi:
+  ssid: Holod
+  password: "15092715"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Rgb-Adres Fallback Hotspot"
+    password: "15092715"
+
+captive_portal:
+
+# Example configuration entry
+web_server:
+  port: 80  
+
+
+
+
+
+light:
+  - platform: neopixelbus
+    type: GRB
+    pin: GPIO25
+    variant: 800KBPS
+    num_leds: 64
+    id: light1
+    name: "NeoPixel Light"
+  - platform: partition
+    name: "Ring #1"
+    segments:
+      - id: light1
+        from: 0
+        to: 21
+    effects:
+      - addressable_scan
+  - platform: partition
+    name: "Ring #2"
+    segments:
+      - id: light1
+        from: 21
+        to: 36  
+    effects:
+      - addressable_scan
+  - platform: partition
+    name: "Ring #3"
+    segments:
+      # Use LEDs 11-20 from the light with ID light1
+      - id: light1
+        from: 36
+        to: 63   
+    effects:
+      - addressable_scan
+
