@@ -1,38 +1,4 @@
-esphome:
-  name: rgb-adres
-  friendly_name: rgb adres
 
-esp32:
-  board: esp32dev
-  framework:
-    type: arduino
-
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
-  encryption:
-    key: "hDf/uWuwSmMU/NfrYHgaGOpVIHuParDotnxe4hOfZiA="
-
-ota:
-  - platform: esphome
-    password: "1b42dccb0fa11f089a3b3c334beb28be"
-
-wifi:
-  ssid: Holod
-  password: "15092715"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Rgb-Adres Fallback Hotspot"
-    password: "15092715"
-
-captive_portal:
-
-# Example configuration entry
-web_server:
-  port: 80  
 
 
 
