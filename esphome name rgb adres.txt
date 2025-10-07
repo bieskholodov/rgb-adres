@@ -7,7 +7,7 @@
 light:
   - platform: neopixelbus
     type: GRB
-    pin: GPIO25
+    pin: GPIO21
     variant: 800KBPS
     num_leds: 64
     id: light1
