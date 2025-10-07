@@ -38,3 +38,4 @@ light:
     effects:
       - addressable_scan
 
+https://community.home-assistant.io/t/m5stack-nanoc6-zigbee-rgbic-strip/919138
